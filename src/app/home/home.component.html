@@ -1,0 +1,53 @@
+<div class="home-container">
+  <div class="home-banner">
+    <h1>Soccer Leagues</h1>
+  </div>
+  <div class="home-content">
+
+    <div class="league" 
+        *ngFor="let league of leagues" 
+        (click)="goToLeagueDetails(league.id)"
+        [hidden]="league.position !== 1"
+        [ngClass]="{ 'gold': league.position == 1 }">
+      <div class="name">
+        <h3>{{ league.caption }}</h3>
+      </div>
+      <div class="description">
+        <h5>Current match day: {{ league.currentMatchday }}</h5>
+        <h5>Last updated: {{ league.lastUpdated }}</h5>
+      </div>
+    </div>
+
+    <div class="league" 
+      *ngFor="let league of leagues" 
+      [hidden]="league.position !== 2"
+      [ngClass]="{ 'green': league.position == 2 }">
+      <div class="name" (click)="goToLeagueDetails(league.id)">
+        <h3>{{ league.caption }}</h3>
+      </div>
+      <div class="description">
+        <h5>Current match day: {{ league.currentMatchday }}</h5>
+        <h5>Last updated: {{ league.lastUpdated }}</h5>
+      </div>
+      <div class="actions">
+        <button (click)="removeLike(league.id)">Remove like</button>
+      </div>
+    </div>
+
+    <div class="league" 
+      *ngFor="let league of leagues" 
+      [hidden]="league.position !== 3">
+      <div class="name" (click)="goToLeagueDetails(league.id)">
+        <h3>{{ league.caption }}</h3>
+      </div>
+      <div class="description">
+        <h5>Current match day: {{ league.currentMatchday }}</h5>
+        <h5>Last updated: {{ league.lastUpdated }}</h5>
+      </div>
+      <div class="actions">
+        <button (click)="addLike(league.id)">Like</button>
+        <button (click)="removeLeague(league.id)">Remove league</button>
+      </div>
+    </div>
+  </div>
+</div>

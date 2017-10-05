@@ -1,0 +1,42 @@
+<div class="league-detail-container">
+  <div class="views">
+    <button [ngClass]="{ 'active': view == 'teams' }" (click)="changeView('teams')">Teams</button>
+    <button [ngClass]="{ 'active': view == 'table' }" (click)="changeView('table')">Table</button>
+  </div>
+  <div class="table-info" *ngIf="view == 'table'">
+    <table>
+      <thead>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played Games</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Draws</th>
+        <th>Goals</th>
+        <th>Goals Against</th>
+        <th>Goals Difference</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of leagueTableInfo.standing">
+          <td> {{ team.position }} </td>
+          <td> {{ team.teamName }} </td>
+          <td> {{ team.playedGames }} </td>
+          <td> {{ team.points }} </td>
+          <td> {{ team.wins }} </td>
+          <td> {{ team.losses }} </td>
+          <td> {{ team.draws }} </td>
+          <td> {{ team.goals }} </td>
+          <td> {{ team.goalsAgainst }} </td>
+          <td> {{ team.goalDifference }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="teams-info" *ngIf="view == 'teams'">
+    <div class="team" *ngFor="let team of teamsInfo.teams">
+      <h3> {{ team.name }} </h3>
+    </div>
+  </div>
+</div>
+<button class="return" (click)="goToHome()">Go back!</button>

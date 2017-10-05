@@ -1,0 +1,31 @@
+<div class="authForm">
+  <div class="loginView">
+    <h2 *ngIf="isLogin">Login</h2>
+    <h2 *ngIf="!isLogin">Sign Up</h2>
+    <form>
+      <div class="item">
+        <label for="">Email</label>
+        <input name="email" type="text" [(ngModel)]="email" autocomplete="off">
+      </div>
+      <div class="item">
+        <label for="">Password</label>
+        <input name="password" [(ngModel)]="password" type="password" autocomplete="off">
+      </div>
+      <div class="item" *ngIf="!isLogin">
+        <label for="">Favorite League</label>
+        <select name="favorite-league" id="" [(ngModel)]="favoriteLeague">
+          <option value="0" selected>Choose...</option>
+          <option *ngFor="let league of leagues"
+                  [value]="league.id">{{ league.caption }}</option>
+        </select>
+      </div>
+      <button class="enter" *ngIf="isLogin" (click)="login()">GO!</button>
+      <button class="enter" *ngIf="!isLogin" (click)="signUp()">Done!</button>
+      <div class="actions">
+          <button class="login" (click)="changeToLogin()">Login</button>
+          <span>OR</span>
+          <button class="signup" (click)="changeToSignUp()">SignUp</button>
+      </div>
+    </form>
+  </div>
+</div>

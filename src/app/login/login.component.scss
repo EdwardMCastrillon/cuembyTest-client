@@ -1,0 +1,70 @@
+* {
+    font-family: "Play";
+}
+.authForm {
+    background-image: url("/assets/images/loginBackground.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .loginView {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 25em;
+        min-height: 15em;
+        height: auto;
+        border: 2px solid black;
+        .item {
+            text-align: initial;
+            margin: 0 0 1em 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            input, label, select {
+                width: 70%;
+                margin: 0 auto;
+            }
+            input, select {
+                height: 2em;
+                border-radius: 5px;
+                border: 1px solid black;
+            }
+        }
+        .enter {
+            height: 2.5em;
+            width: 70%;
+            margin: 0 auto;
+            color: black;
+            border: 2px solid black;
+            cursor: pointer;
+            background-color: white;
+            margin-bottom: 1em;
+        }
+        .enter:hover {
+            background-color: black;
+            color: white;
+        }
+        .actions {
+            margin-bottom: 1em;
+            button {
+                height: 2em;
+                border: 2px solid black;
+                background-color: white;
+                margin-top: 1em;
+                width: 32%;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+            button:hover {
+                color: white;
+                background-color: black;
+            }
+        }
+        
+    }
+}
